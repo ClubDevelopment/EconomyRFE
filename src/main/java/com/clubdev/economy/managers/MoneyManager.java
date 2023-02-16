@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 public class MoneyManager {
     private EconomyRFE main;
@@ -49,7 +48,7 @@ public class MoneyManager {
     }
 
     public void reduceMoney(UUID uuid, double reducedMoney) {
-        double newMoney = this.getMoney(uuid) - (this.getMoney(uuid) < reducedMoney?this.getMoney(uuid):reducedMoney);
+        double newMoney = this.getMoney(uuid) - reducedMoney;
         this.setMoney(uuid, newMoney);
     }
 
@@ -85,7 +84,7 @@ public class MoneyManager {
     }
 
     public void reduceMoney(IPlayer player, double money) {
-        this.reduceMoney(player, money);
+        this.reduceMoney(player.getUniqueId(), money);
     }
 
     private void databaseSetup() {
