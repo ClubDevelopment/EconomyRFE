@@ -2,8 +2,7 @@ package com.clubdev.economy;
 
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.plugin.PluginLogger;
-import com.clubdev.economy.commands.MoneyCommand;
-import com.clubdev.economy.commands.PayCommand;
+import com.clubdev.economy.commands.*;
 import com.clubdev.economy.database.IDatabase;
 import com.clubdev.economy.database.SQLite;
 import com.clubdev.economy.managers.MoneyManager;
@@ -25,7 +24,11 @@ public class EconomyRFE extends PluginBase {
         moneyManager = new MoneyManager(this);
         getServer().getCommandMap().registerAll("Economy", Arrays.asList(
                 new MoneyCommand(this),
-                new PayCommand(this)
+                new PayCommand(this),
+                new AddMoneyCommand(this),
+                new ReduceMoneyCommand(this),
+                new SeeMoneyCommand(this),
+                new SeeMoneyCommand(this)
         ));
     }
 }

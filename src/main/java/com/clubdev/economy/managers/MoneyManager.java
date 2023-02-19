@@ -75,8 +75,8 @@ public class MoneyManager {
         return this.getMoney(player.getUniqueId());
     }
 
-    public void setMoney(IPlayer player, double money) {
-        this.setMoney(player.getUniqueId(), money);
+    public TaskHandler setMoney(IPlayer player, double money) {
+       return this.setMoney(player.getUniqueId(), money);
     }
 
     public void giveMoney(IPlayer player, double money) {

@@ -1,5 +1,6 @@
 package com.clubdev.economy;
 
+import cn.nukkit.IPlayer;
 import cn.nukkit.scheduler.TaskHandler;
 import lombok.RequiredArgsConstructor;
 
@@ -26,4 +27,19 @@ public class API {
     }
     //Methods with Player
 
+    public double getMoney(IPlayer player) {
+        return this.main.getMoneyManager().getMoney(player);
+    }
+
+    public TaskHandler setMoney(IPlayer player, double money) {
+        return this.main.getMoneyManager().setMoney(player, money);
+    }
+
+    public void reduceMoney(IPlayer player, double money) {
+        this.main.getMoneyManager().reduceMoney(player, money);
+    }
+
+    public void giveMoney(IPlayer player, double money) {
+        this.main.getMoneyManager().giveMoney(player, money);
+    }
 }
