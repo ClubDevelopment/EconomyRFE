@@ -1,6 +1,7 @@
 package com.clubdev.economy.commands;
 
 import cn.nukkit.IPlayer;
+import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.data.CommandParamType;
@@ -21,6 +22,12 @@ public class AddMoneyCommand extends Command {
 
     @Override
     public boolean execute(CommandSender commandSender, String s, String[] strings) {
+        if(commandSender instanceof Player player) {
+            if(!commandSender.hasPermission("economy.addmoney")) {
+                commandSender.sendMessage("У тебя нет прав!");
+                return true;
+            }
+        }
         if(strings.length != 2) {
             commandSender.sendMessage("Вы неправильно используете комманду! Правильно: /addmoney никнейм колличество");
             return true;

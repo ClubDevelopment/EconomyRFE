@@ -8,3 +8,12 @@ description: "Economy plugin for RFE"
 prefix: "Economy"
 depend:
   - FormConstructor
+permissions:
+  economy.addmoney:
+    default: false
+  economy.reducemoney:
+    default: false
+  economy.seemoney:
+    default: false
+  economy.setmoney:
+    default: false
