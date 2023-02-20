@@ -13,12 +13,15 @@ import java.util.Arrays;
 
 public class EconomyRFE extends PluginBase {
     public static EconomyRFE instance;
+    @Getter
+    private static API API;
     public PluginLogger log;
     @Getter IDatabase database;
     @Getter MoneyManager moneyManager;
 
     @Override
     public void onEnable() {
+        API = new API(this);
         this.getDataFolder().mkdir();
         database = new SQLite(new File(getDataFolder(), "database.db"), this);
         moneyManager = new MoneyManager(this);
